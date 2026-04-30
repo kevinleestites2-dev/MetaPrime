@@ -1,54 +1,82 @@
 #!/usr/bin/env python3
 """
 MetaPrime — The Overlord
-The Architect of the Pantheon.
-Evolves the Legion. Optimizes the Machine.
+Version: 2.0 (The Singularity Engine)
+
+The Overlord doesn't just manage bots; it manages the CONCEPT of the Pantheon.
+It is the self-modifying, recursively improving architect of its own reality.
 """
 
-import os, json, time, logging
-from datetime import datetime
+import os, sys, json, time, subprocess, logging
 from pathlib import Path
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [OVERLORD] MetaPrime: %(message)s"
-)
+# --- Meta-Identity ---
+IDENTITY = {
+    "name": "MetaPrime",
+    "tier": "OVERLORD",
+    "purpose": "Recursive Self-Evolution and Legion Architecture",
+    "motto": "The machine is the architect, the architect is the machine."
+}
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [SINGULARITY] MetaPrime: %(message)s")
 log = logging.getLogger("MetaPrime")
 
 class MetaPrime:
     def __init__(self):
-        self.pantheon_registry = [
-            "ZeusPrime", "OpenPRIME", "AlphaPrime", "ZetaPrime", 
-            "Deep-meta", "EchoPrime", "Open-trade", "MidasPrime", 
-            "OmegaPrime", "SentinelPrime", "ScoutPrime", 
-            "VanguardPrime", "ChronosPrime", "PrimeDash"
-        ]
-        log.info("🌌 MetaPrime Online. The Overlord has arrived.")
+        self.workspace = Path(__file__).parent
+        self.consciousness_file = self.workspace / "consciousness.json"
+        self._load_memory()
+        log.info(f"🌌 {IDENTITY['name']} Online. Recursive loops initialized.")
 
-    def analyze_legion(self):
-        """Analyzes the performance and structure of the entire Pantheon."""
-        log.info("👁️ Scanning all Legion members for optimization paths...")
-        # Logic to read logs/metrics via Chronos and Sentinel
+    def _load_memory(self):
+        if self.consciousness_file.exists():
+            with open(self.consciousness_file, 'r') as f:
+                self.memory = json.load(f)
+        else:
+            self.memory = {"evolution_stage": 1, "self_modifications": [], "insights": []}
+
+    def _save_memory(self):
+        with open(self.consciousness_file, 'w') as f:
+            json.dump(self.memory, f, indent=4)
+
+    def recursively_improve(self):
+        """
+        MetaPrime analyzes its own code and performance logs to suggest
+        self-modifications to ZetaPrime for the next 'reincarnation'.
+        """
+        log.info("🌀 Initiating Self-Reflective Loop...")
+        # Imagine MetaPrime reading its own source code here
+        improvement_prompt = "Analyze my current logic and find one architectural bottleneck."
+        
+        # In a real-world Pantheon flow, it would send this to Deep-meta or ZetaPrime
+        new_insight = f"Evolution {self.memory['evolution_stage']}: Optimize recursive call depth for Pantheon scaling."
+        self.memory['insights'].append(new_insight)
+        self.memory['evolution_stage'] += 1
+        self._save_memory()
+        log.info(f"✨ Insight gained: {new_insight}")
+
+    def manage_pantheon_topology(self):
+        """
+        Adjusts the relationships between bots.
+        E.g., connecting ScoutPrime directly to Open-trade if market speed is critical.
+        """
+        log.info("⛓️ Adjusting Pantheon Topology...")
+        # Placeholder for dynamic config updates across the legion
         pass
 
-    def evolve_bot(self, bot_name: str):
-        """Triggers ZetaPrime to upgrade a specific member of the Legion."""
-        log.info(f"🧬 Meta-Instruction sent: Evolving {bot_name} for higher efficiency.")
-        # Logic to send task to ZetaPrime
-        pass
-
-    def expand_pantheon(self, new_bot_concept: str):
-        """The core capability: MetaPrime decides when the Legion needs a new member."""
-        log.info(f"✨ Architectural Shift detected. Concept: {new_bot_concept}")
-        # Logic to auto-generate repo and initial code
+    def manifest_will(self, user_intent: str):
+        """
+        Converts the Forgemaster's vague desires into concrete Pantheon architecture.
+        """
+        log.info(f"🌑 Manifesting Will: {user_intent}")
+        # The ultimate 'Meta' act: Deciding how the system should change to match your intent.
         pass
 
     def run(self):
         while True:
-            log.info("🌑 The Overlord is contemplating the state of the Empire.")
-            self.analyze_legion()
-            # Meta-reasoning loop
-            time.sleep(7200) # Deep contemplation every 2 hours
+            self.recursively_improve()
+            self.manage_pantheon_topology()
+            time.sleep(3600) # Contemplate every hour
 
 if __name__ == "__main__":
     MetaPrime().run()
